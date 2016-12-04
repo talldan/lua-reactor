@@ -1,13 +1,12 @@
-local function validateTypes(propTypes, props)
-  -- todo - implement it
-end
+local path = (...):gsub("%.declare$","")
+local validateProps = require(path .. '.validateProps')
 
 local function declare(renderFunc, propTypes)
   assert(type(renderFunc) == 'function',
     'expected first argument to declare to be a function')
 
   return function(props, children, key)
-    validateTypes(propTypes, props)
+    validateProps(propTypes, props)
     return renderFunc(props, children, key)
   end
 end
