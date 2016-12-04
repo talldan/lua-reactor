@@ -1,1 +1,3 @@
-return {}
+return {
+  'tests/specs/declare.lua'
+}
