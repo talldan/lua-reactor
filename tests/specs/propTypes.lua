@@ -91,7 +91,7 @@ describe('propTypes', function()
         local testArgument = "a test argument"
         local newPropType = propType(testArgument)
 
-        expect(newPropType.data)
+        expect(newPropType.validationData)
           .to.be(testArgument)
       end)
 

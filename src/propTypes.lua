@@ -1,9 +1,9 @@
 local makePropType, makeCallable
 local callableMetatable = {}
 
-callableMetatable.__call = function(propType, propTypeData)
+callableMetatable.__call = function(propType, propTypeValidationData)
   local newPropType = makePropType(propType.name)
-  newPropType.data = propTypeData
+  newPropType.validationData = propTypeValidationData
   return newPropType
 end
 
