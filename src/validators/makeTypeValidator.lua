@@ -1,4 +1,6 @@
 local function makeTypeValidator(typeName)
+  assert(type(typeName) == 'string',
+    'expected typeName argument to be string in call to makeTypeValidator')
 
   local function validator(propTypeDeclaration, property)
     assert(type(propTypeDeclaration) == 'table',

@@ -1,0 +1,30 @@
+local makeTypeValidator = require('src.validators.makeTypeValidator')
+
+describe('makeTypeValidator', function()
+  describe('error states', function()
+    it('causes an error when called with a non string first argument', function()
+      expect(function()
+        makeTypeValidator()
+      end).to.fail()
+
+      expect(function()
+        makeTypeValidator(function() end)
+      end).to.fail()
+
+      expect(function()
+        makeTypeValidator(12)
+      end).to.fail()
+
+      expect(function()
+        makeTypeValidator(false)
+      end).to.fail()
+    end)
+  end)
+
+  describe('behaviour', function()
+    it('returns a function when called with a valid first argument', function()
+      expect(type(makeTypeValidator('string')))
+        .to.be('function')
+    end)
+  end)
+end)
