@@ -6,5 +6,7 @@ return {
   'tests/specs/validators/boolean.lua',
   'tests/specs/validators/table.lua',
   'tests/specs/validators/function.lua',
+  'tests/specs/validators/callable.lua',
+  'tests/specs/validators/oneOf.lua',
   'tests/specs/validators/makeTypeValidator.lua'
 }
