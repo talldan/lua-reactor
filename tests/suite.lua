@@ -1,3 +1,4 @@
 return {
-  'tests/specs/validators/tableShape.lua'
+  'tests/specs/propTypeValidators/tableShape.lua',
+  'tests/specs/propTypeValidators/oneOf.lua'
 }
