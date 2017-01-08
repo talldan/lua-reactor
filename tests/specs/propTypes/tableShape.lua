@@ -5,7 +5,7 @@ local function trueValidator()
 end
 
 local function falseValidator()
-  return false 
+  return false, 'this validation failed'
 end
 
 describe('tableShape', function()
@@ -135,6 +135,23 @@ describe('tableShape', function()
 
       expect(passedValue)
         .to.be(testValue)
+    end)
+
+    it('does not return a second return value when validation is successful', function()
+      local validator = tableShape({ test = trueValidator })
+      local isValid, reason = validator({ test = 'test' })
+
+      expect(reason)
+        .to.be(nil)
+    end)
+
+
+    it('returns a second return value of type string that represents the reason validation failed', function()
+      local validator = tableShape({ test = falseValidator })
+      local isValid, reason = validator({ test = 'test' })
+
+      expect(type(reason))
+        .to.be('string')
     end)
   end)
 end)
