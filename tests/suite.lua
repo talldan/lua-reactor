@@ -6,5 +6,6 @@ return {
   'tests/specs/propTypeValidators/callable.lua',
   'tests/specs/propTypeValidators/function.lua',
   'tests/specs/propTypeValidators/number.lua',
+  'tests/specs/propTypeValidators/string.lua',
   'tests/specs/propTypeValidators/oneOf.lua'
 }
