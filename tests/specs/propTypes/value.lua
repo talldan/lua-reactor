@@ -1,4 +1,4 @@
-local value = require('src.propTypeValidators.value')
+local value = require('src.propTypes.value')
 
 describe('value', function()
   describe('error states', function()

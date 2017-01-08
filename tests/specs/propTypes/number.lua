@@ -1,4 +1,4 @@
-local validateNumber = require('src.propTypeValidators.number')
+local validateNumber = require('src.propTypes.number')
 
 describe('number', function()
   describe('behaviour', function()

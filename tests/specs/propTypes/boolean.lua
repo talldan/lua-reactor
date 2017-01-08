@@ -1,4 +1,4 @@
-local validateBoolean = require('src.propTypeValidators.boolean')
+local validateBoolean = require('src.propTypes.boolean')
 
 describe('boolean', function()
   describe('behaviour', function()

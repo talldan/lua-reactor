@@ -1,4 +1,4 @@
-local optional = require('src.propTypeValidators.optional')
+local optional = require('src.propTypes.optional')
 
 local function stringValidator()
   return function(toValidate)

@@ -1,4 +1,4 @@
-local validateTable = require('src.propTypeValidators.table')
+local validateTable = require('src.propTypes.table')
 
 describe('table', function()
   describe('behaviour', function()

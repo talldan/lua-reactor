@@ -1,4 +1,4 @@
-local callable = require('src.propTypeValidators.callable')
+local callable = require('src.propTypes.callable')
 
 describe('callable', function() 
   describe('behaviour', function()
