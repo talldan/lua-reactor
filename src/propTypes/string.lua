@@ -1,6 +1,14 @@
 local function validateString()
   return function(toValidate)
-    return type(toValidate) == 'string'
+    local isValid = type(toValidate) == 'string'
+    local reason = nil
+
+    if not isValid then
+      reason =
+        'failed to validate prop as string, instead saw ' .. type(toValidate)
+    end
+
+    return isValid, reason
   end
 end
 

@@ -1,6 +1,14 @@
 local function validateNumber()
   return function(toValidate)
-    return type(toValidate) == 'number'
+    local isValid = type(toValidate) == 'number'
+    local reason = nil
+
+    if not isValid then
+      reason =
+        'failed to validate prop as number, instead saw ' .. type(toValidate)
+    end
+
+    return isValid, reason
   end
 end
 
