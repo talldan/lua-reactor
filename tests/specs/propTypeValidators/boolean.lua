@@ -1,14 +1,14 @@
-local booleanValidator = require('src.propTypeValidators.boolean')
+local validateBoolean = require('src.propTypeValidators.boolean')
 
 describe('boolean', function()
   describe('behaviour', function()
     it('returns a validator function to use for validation', function()
-      expect(type(booleanValidator()))
+      expect(type(validateBoolean()))
         .to.be('function')
     end)
 
     it('returns true if the supplied value to the validator is of type boolean', function()
-      local validator = booleanValidator()
+      local validator = validateBoolean()
 
       expect(validator(true))
         .to.be(true)
@@ -18,7 +18,7 @@ describe('boolean', function()
     end)
 
     it('returns false if the supplied value to the validator is of a type that is not a boolean', function()
-      local validator = booleanValidator()
+      local validator = validateBoolean()
 
       expect(validator(nil))
         .to.be(false)
