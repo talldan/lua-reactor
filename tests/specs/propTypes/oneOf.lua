@@ -68,5 +68,28 @@ describe('oneOf', function()
       expect(validator())
         .to.be(true)
     end)
+
+    it('does not return a second return value when validation is successful', function()
+      local validator = oneOf({
+        trueValidator,
+        trueValidator
+      })
+      local isValid, reason = validator()
+
+      expect(reason)
+        .to.be(nil)
+    end)
+
+
+    it('returns a second return value of type string that represents the reason validation failed', function()
+      local validator = oneOf({
+        falseValidator,
+        falseValidator
+      })
+      local isValid, reason = validator(nil)
+
+      expect(type(reason))
+        .to.be('string')
+    end)
   end)
 end)

@@ -1,22 +1,41 @@
-local function isCallableTable(toValidate)
-  local metatable = getmetatable(toValidate)
+local function getFailureReason(toValidate)
+  local valueType = type(toValidate)
 
-  if metatable and type(metatable) == 'table' then
-    return type(metatable.__call) == 'function'
+  if valueType == 'table' then
+    valueType = 'non-callable table'
   end
 
-  return false
+  return 'failed to validate prop as callable, instead saw ' .. valueType
+end
+
+local function isFunction(toValidate)
+  return type(toValidate) == 'function'
+end
+
+local function isCallableTable(toValidate)
+  if type(toValidate) ~= 'table' then
+    return false
+  end
+
+  local metatable = getmetatable(toValidate)
+
+  if type(metatable) ~= 'table' then
+    return false
+  end
+
+  return isFunction(metatable.__call)
 end
 
 local function callable()
   return function(toValidate)
-    if type(toValidate) == 'function' then
-      return true
-    elseif type(toValidate) == 'table' then
-      return isCallableTable(toValidate)
+    local isValid = isFunction(toValidate) or isCallableTable(toValidate)
+    local reason = nil
+
+    if not isValid then
+      reason = getFailureReason(toValidate)
     end
 
-    return false
+    return isValid, reason
   end
 end
 

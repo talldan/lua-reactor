@@ -6,7 +6,8 @@ local function optional(validateNormally)
     if toValidate == nil then
       return true
     else
-      return validateNormally(toValidate)
+      local isValid, reason = validateNormally(toValidate)
+      return isValid, reason
     end
   end
 end

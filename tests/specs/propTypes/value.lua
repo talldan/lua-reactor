@@ -19,11 +19,20 @@ describe('value', function()
         .to.be('function')
     end)
 
-    it('matches an exact value', function()
+    it('returns true when an exact value is matched', function()
       local testValidator = value('test')
 
       expect(testValidator('test'))
         .to.be(true)
+
+      local twelveValidator = value(12)
+
+      expect(twelveValidator(12))
+        .to.be(true)
+    end)
+
+    it('returns false when a value is not matched', function()
+      local testValidator = value('test')
 
       expect(testValidator('notTest'))
         .to.be(false)
@@ -37,10 +46,13 @@ describe('value', function()
       expect(testValidator(true))
         .to.be(false)
 
-      local twelveValidator = value(12)
+      expect(testValidator(function() end))
+        .to.be(false)
 
-      expect(twelveValidator(12))
-        .to.be(true)
+      expect(testValidator({}))
+        .to.be(false)
+
+      local twelveValidator = value(12)
 
       expect(twelveValidator('12'))
         .to.be(false)
@@ -53,6 +65,28 @@ describe('value', function()
 
       expect(twelveValidator(true))
         .to.be(false)
+
+      expect(twelveValidator(function() end))
+        .to.be(false)
+
+      expect(twelveValidator({}))
+        .to.be(false)
+    end)
+
+    it('does not return a second return value when validation is successful', function()
+      local validator = value('test')
+      local isValid, reason = validator('test')
+
+      expect(reason)
+        .to.be(nil)
+    end)
+
+    it('returns a second return value of type string that represents the reason validation failed', function()
+      local validator = value('test')
+      local isValid, reason = validator(true)
+
+      expect(type(reason))
+        .to.be('string')
     end)
   end)
 end)

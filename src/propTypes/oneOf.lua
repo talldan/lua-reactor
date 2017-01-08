@@ -5,7 +5,10 @@ local function validate(optionsDescription, toValidate)
     end
   end
 
-  return false
+  local reason = 'failed to validate prop as oneOf a set of options, ' ..
+    'instead saw ' .. type(toValidate)
+
+  return false, reason
 end
 
 local function oneOf(optionsDescription)
@@ -13,7 +16,8 @@ local function oneOf(optionsDescription)
     'oneOf validator expected optionsDescription to be expressed as a table')
 
   return function(toValidate)
-    return validate(optionsDescription, toValidate)
+    local isValid, reason = validate(optionsDescription, toValidate)
+    return isValid, reason
   end
 end
 

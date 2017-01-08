@@ -2,7 +2,14 @@ local optional = require('src.propTypes.optional')
 
 local function stringValidator()
   return function(toValidate)
-    return type(toValidate) == 'string'
+    local isValid = type(toValidate) == 'string'
+    local reason = nil
+
+    if not isValid then
+      reason = 'not a string'
+    end
+
+    return isValid, reason
   end
 end
 
@@ -38,8 +45,8 @@ describe('optional', function()
     end)
 
     it('allows nil as an accepted value when wrapping another validator', function()
-      validateString = stringValidator()
-      optionalValidateString = optional(stringValidator())
+      local validateString = stringValidator()
+      local optionalValidateString = optional(stringValidator())
 
       expect(validateString('test'))
         .to.be(true)
@@ -58,6 +65,23 @@ describe('optional', function()
 
       expect(optionalValidateString(12))
         .to.be(false)
+    end)
+
+    it('does not return a second return value when validation is successful', function()
+      local validator = optional(stringValidator())
+      local isValid, reason = validator()
+
+      expect(reason)
+        .to.be(nil)
+    end)
+
+
+    it('returns a second return value of type string that represents the reason validation failed', function()
+      local validator = optional(stringValidator())
+      local isValid, reason = validator(12)
+
+      expect(type(reason))
+        .to.be('string')
     end)
   end)
 end)
