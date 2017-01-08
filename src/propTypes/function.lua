@@ -5,7 +5,7 @@ local function validateFunction()
 
     if not isValid then
       reason =
-        'failed to validate prop as function, instead saw ' .. type(toValidate)
+        'Failed to validate prop as function, instead saw ' .. type(toValidate)
     end
 
     return isValid, reason

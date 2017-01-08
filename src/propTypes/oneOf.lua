@@ -5,7 +5,7 @@ local function validate(optionsDescription, toValidate)
     end
   end
 
-  local reason = 'failed to validate prop as oneOf a set of options, ' ..
+  local reason = 'Failed to validate prop as oneOf a set of options, ' ..
     'instead saw ' .. type(toValidate)
 
   return false, reason

@@ -5,7 +5,7 @@ local function validateTable()
 
     if not isValid then
       reason =
-        'failed to validate prop as table, instead saw ' .. type(toValidate)
+        'Failed to validate prop as table, instead saw ' .. type(toValidate)
     end
 
     return isValid, reason

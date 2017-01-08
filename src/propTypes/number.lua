@@ -5,7 +5,7 @@ local function validateNumber()
 
     if not isValid then
       reason =
-        'failed to validate prop as number, instead saw ' .. type(toValidate)
+        'Failed to validate prop as number, instead saw ' .. type(toValidate)
     end
 
     return isValid, reason

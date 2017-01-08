@@ -13,7 +13,7 @@ local function value(description)
       local printableDescription = getPrintableValue(description)
       local printableValue = getPrintableValue(toValidate)
 
-      reason = 'failed to validate prop as value ' .. printableDescription ..
+      reason = 'Failed to validate prop as value ' .. printableDescription ..
         ', instead saw ' .. printableValue
     end
 

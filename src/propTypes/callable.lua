@@ -5,7 +5,7 @@ local function getFailureReason(toValidate)
     valueType = 'non-callable table'
   end
 
-  return 'failed to validate prop as callable, instead saw ' .. valueType
+  return 'Failed to validate prop as callable, instead saw ' .. valueType
 end
 
 local function isFunction(toValidate)
