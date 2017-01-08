@@ -34,6 +34,11 @@ describe('tableShape', function()
   end)
 
   describe('behaviour', function()
+    it('returns a function to use for validation when passed a valid description', function()
+      expect(type(tableShape({})))
+        .to.be('function')
+    end)
+
     it('returns false if a table is not specified to the validator', function()
       local validateEmptyTable = tableShape({})
 

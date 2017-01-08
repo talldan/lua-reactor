@@ -34,6 +34,11 @@ describe('oneOf', function()
   end)
 
   describe('behaviour', function() 
+    it('returns a function to use for validation when passed a valid description', function()
+      expect(type(oneOf({trueValidator, falseValidator})))
+        .to.be('function')
+    end)
+
     it('returns false if all validators specified in the description return false', function()
       local validator = oneOf({
         falseValidator,

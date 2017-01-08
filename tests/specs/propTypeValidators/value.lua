@@ -14,6 +14,11 @@ describe('value', function()
   end)
 
   describe('behaviour', function()
+    it('returns a function to use for validation when passed a valid description', function()
+      expect(type(value({trueValidator, falseValidator})))
+        .to.be('function')
+    end)
+
     it('matches an exact value', function()
       local testValidator = value('test')
 

@@ -32,6 +32,11 @@ describe('optional', function()
   end)
 
   describe('behaviour', function()
+    it('returns a function to use for validation when passed a function to wrap', function()
+      expect(type(optional(stringValidator())))
+        .to.be('function')
+    end)
+
     it('allows nil as an accepted value when wrapping another validator', function()
       validateString = stringValidator()
       optionalValidateString = optional(stringValidator())
