@@ -1,3 +1,8 @@
+local function getFailureReason(actualValue)
+  return 'Failed to validate prop as oneOf a set of options, ' ..
+    'instead saw ' .. type(actualValue)
+end
+
 local function validate(optionsDescription, toValidate)
   for _, optionValidator in ipairs(optionsDescription) do
     if optionValidator(toValidate) then
@@ -5,10 +10,7 @@ local function validate(optionsDescription, toValidate)
     end
   end
 
-  local reason = 'Failed to validate prop as oneOf a set of options, ' ..
-    'instead saw ' .. type(toValidate)
-
-  return false, reason
+  return false, getFailureReason(toValidate)
 end
 
 local function oneOf(optionsDescription)
@@ -16,8 +18,7 @@ local function oneOf(optionsDescription)
     'oneOf validator expected optionsDescription to be expressed as a table')
 
   return function(toValidate)
-    local isValid, reason = validate(optionsDescription, toValidate)
-    return isValid, reason
+    return validate(optionsDescription, toValidate)
   end
 end
 

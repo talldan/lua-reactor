@@ -1,5 +1,5 @@
-local function getFailureReason(toValidate)
-  local valueType = type(toValidate)
+local function getFailureReason(actualValue)
+  local valueType = type(actualValue)
 
   if valueType == 'table' then
     valueType = 'non-callable table'

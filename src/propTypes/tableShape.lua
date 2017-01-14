@@ -1,6 +1,22 @@
 local path = (...):gsub("%.propTypes.tableShape$","")
 local getPrintableValue = require(path .. '.helpers.getPrintableValue')
 
+local function getIncorrectKeyCountFailureReason(keyCount)
+  return 'Failed to validate prop as tableShape, ' ..
+    'expected table to have ' .. keyCount .. 'properties'
+end
+
+local function getKeyMismatchFailureReason(expectedKey)
+  return 'Failed to validate prop as tableShape, ' ..
+    'expected table to contain key: ' .. getPrintableValue(expectedKey)
+end
+
+local function getPropertyValidationFailureReason(key, reason)
+  return 'Failed to validate prop as tableShape, ' ..
+    'property validation failed for key: ' .. getPrintableValue(key) ..
+    '. Validation error: ' .. getPrintableValue(reason)
+end
+
 local function isTableType(toValidate)
   local isValid = type(toValidate) == 'table'
   local reason = nil
@@ -33,20 +49,17 @@ local function hasAllKeys(toValidate, shapeDescription)
   isValid = #descritionKeys == #keysToValidate
 
   if not isValid then
-    reason = 'Failed to validate prop as tableShape, ' ..
-      'expected table to have ' .. #descritionKeys .. 'properties' 
-    return isValid, reason
+    return isValid, getIncorrectKeyCountFailureReason(#descritionKeys)
   end
 
-  for index, keyDescription in ipairs(descritionKeys) do
+  for index, expectedKey in ipairs(descritionKeys) do
     local keyToValidate = keysToValidate[index]
 
-    isValid = keyDescription == keyToValidate
+    isValid = expectedKey == keyToValidate
 
-    if not isValid then 
-      reason = 'Failed to validate prop as tableShape, ' ..
-        'expected table to contain key: ' .. getPrintableValue(keyDescription)
-      return isValid, reason 
+    if not isValid then
+      -- todo: this probably doesn't work! fix it
+      return isValid, getKeyMismatchFailureReason(expectedKey)
     end
   end
 
@@ -54,15 +67,14 @@ local function hasAllKeys(toValidate, shapeDescription)
 end
 
 local function hasValidProperties(toValidate, shapeDescription)
-  for index, validator in pairs(shapeDescription) do
-    local propertyToValidate = toValidate[index]
+  for key, validator in pairs(shapeDescription) do
+    -- todo: check that validator is function
+    -- or use pcall to catch runtime errors
+    local propertyToValidate = toValidate[key]
     local isValid, reason = validator(propertyToValidate)
 
     if not isValid then
-      local reason = 'Failed to validate prop as tableShape, ' ..
-        'property validation failed for key: ' .. getPrintableValue(index) ..
-        '. Validation error: ' .. getPrintableValue(reason)
-      return isValid, reason
+      return isValid, getPropertyValidationFailureReason(key, reason)
     end
   end
 
