@@ -36,6 +36,8 @@ local function getTableKeys(tableWithKeys)
     keys[#keys + 1] = key
   end
 
+  table.sort(keys)
+
   return keys
 end
 
