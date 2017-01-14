@@ -60,7 +60,7 @@ local function hasAllKeys(toValidate, shapeDescription)
     isValid = expectedKey == keyToValidate
 
     if not isValid then
-      -- todo: this probably doesn't work! fix it
+      -- todo: this probably doesn't always return the right key! fix it
       return isValid, getKeyMismatchFailureReason(expectedKey)
     end
   end
