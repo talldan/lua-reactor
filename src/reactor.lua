@@ -1,9 +1,9 @@
-local componentModule = require('reactor.component')
-local lifecycleModule = require('reactor.lifecycle')
-local registryModule = require('reactor.registry')
-local reconcileModule = require('reactor.reconcile')
-local invokeModule = require('reactor.invoke')
-local drawModule = require('reactor.draw')
+local componentModule = require('component')
+local lifecycleModule = require('lifecycle')
+local registryModule = require('registry')
+local reconcileModule = require('reconcile')
+local invokeModule = require('invoke')
+local drawModule = require('draw')
 
 local reactor = {}
 

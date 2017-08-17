@@ -1,5 +1,4 @@
-local path = (...):gsub("%.propTypes.tableShape$","")
-local getPrintableValue = require(path .. '.helpers.getPrintableValue')
+local getPrintableValue = require('helpers.getPrintableValue')
 
 local function getIncorrectKeyCountFailureReason(keyCount)
   return 'Failed to validate prop as tableShape, ' ..

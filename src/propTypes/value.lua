@@ -1,5 +1,4 @@
-local path = (...):gsub("%.propTypes.value$","")
-local getPrintableValue = require(path .. '.helpers.getPrintableValue')
+local getPrintableValue = require('helpers.getPrintableValue')
 
 local function getFailureReason(description, actualValue)
   local printableDescription = getPrintableValue(description)

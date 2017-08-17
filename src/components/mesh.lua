@@ -1,6 +1,6 @@
 -- luacheck: globals love
 
-local createLeafNode = require('reactor.helpers.createLeafNode')
+local createLeafNode = require('helpers.createLeafNode')
 
 local function create(props)
   local mode = props.mode or "fan"
