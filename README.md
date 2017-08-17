@@ -47,7 +47,7 @@ return component{
         name = name
       })
     end)
-    return hellos
+    return helloMessages
   end
 }
 ```
