@@ -1,4 +1,10 @@
+package.path = './src/?.lua;' .. package.path
+
 return {
+  'tests/specs/reconcile.lua',
+  'tests/specs/lifecycle.lua',
+  'tests/specs/component.lua',
+  'tests/specs/invoke.lua',
   'tests/specs/propTypes/tableShape.lua',
   'tests/specs/propTypes/optional.lua',
   'tests/specs/propTypes/value.lua',
