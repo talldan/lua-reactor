@@ -41,13 +41,10 @@ local function getTableKeys(tableWithKeys)
 end
 
 local function hasAllKeys(toValidate, shapeDescription)
-  local isValid = true
-  local reason = nil
-
   local descritionKeys = getTableKeys(shapeDescription)
   local keysToValidate = getTableKeys(toValidate)
 
-  isValid = #descritionKeys == #keysToValidate
+  local isValid = #descritionKeys == #keysToValidate
 
   if not isValid then
     return isValid, getIncorrectKeyCountFailureReason(#descritionKeys)
@@ -87,10 +84,7 @@ local function tableShape(shapeDescription)
     'tableShape validator expected shapeDescription to be expressed as a table')
 
   return function(toValidate)
-    local isValid = true
-    local reason = nil
-
-    isValid, reason = isTableType(toValidate)
+    local isValid, reason = isTableType(toValidate)
 
     if not isValid then
       return isValid, reason
