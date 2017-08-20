@@ -5,6 +5,15 @@ Currently can render a few primitives (text, meshes, and shaders) using love2d
 
 More components coming soon ...
 
+### TODO
+- Continous integration
+- Component unmounting
+- PropType validation
+- Context
+- More component types
+- More tests
+- Extract things like PropTypes and components into separate modules
+
 ### Declare a component
 ```
 local component = require('reactor').component
