@@ -17,7 +17,7 @@ More components coming soon ...
 ### Declare a component
 ```
 local component = require('reactor').component
-local text = require('components.text')
+local text = require('reactor.components.text')
 
 return component{
   name = 'helloText',
