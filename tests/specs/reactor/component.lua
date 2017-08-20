@@ -1,4 +1,4 @@
-local componentModule = require('src.component')
+local componentModule = require('reactor.component')
 local expectedLifecycle = 'test-lifecycle'
 local mockReactor = {
   lifecycle = function()

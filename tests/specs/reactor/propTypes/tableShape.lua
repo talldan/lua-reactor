@@ -1,4 +1,4 @@
-local tableShape = require('src.propTypes.tableShape')
+local tableShape = require('reactor.propTypes.tableShape')
 
 local function trueValidator()
   return true 

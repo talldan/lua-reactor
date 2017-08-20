@@ -1,4 +1,4 @@
-local validateFunction = require('src.propTypes.function')
+local validateFunction = require('reactor.propTypes.function')
 
 describe('function', function() 
   describe('behaviour', function()

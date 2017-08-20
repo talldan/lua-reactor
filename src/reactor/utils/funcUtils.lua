@@ -1,4 +1,4 @@
-local tableUtils = require('utils.tableUtils')
+local tableUtils = require('reactor.utils.tableUtils')
 local reduce = tableUtils.reduce
 local concat = tableUtils.concat
 local map = tableUtils.map

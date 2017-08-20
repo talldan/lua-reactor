@@ -1,4 +1,4 @@
-local optionalMap = require('utils.tableUtils').optionalMap
+local optionalMap = require('reactor.utils.tableUtils').optionalMap
 
 local function invokeModule()
   local backingInstances = {}

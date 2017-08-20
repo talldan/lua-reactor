@@ -1,4 +1,4 @@
-local invokeModule = require('src.invoke')
+local invokeModule = require('reactor.invoke')
 
 local invoke = invokeModule()
 

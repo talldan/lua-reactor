@@ -2,7 +2,7 @@
 -- * do not modify the list of operations
 -- * get operations for children
 
-local assign = require('utils.tableUtils').assign
+local assign = require('reactor.utils.tableUtils').assign
 
 return function()
   local collectionDiff, nodeDiff, diff, recurseThroughCollection

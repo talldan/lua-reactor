@@ -1,4 +1,4 @@
-local value = require('src.propTypes.value')
+local value = require('reactor.propTypes.value')
 
 describe('value', function()
   describe('error states', function()

@@ -1,18 +1,18 @@
-package.path = './src/?.lua;' .. package.path
+package.path = './src/?.lua;./src/?/init.lua;' .. package.path
 
 return {
-  'tests/specs/reconcile.lua',
-  'tests/specs/lifecycle.lua',
-  'tests/specs/component.lua',
-  'tests/specs/invoke.lua',
-  'tests/specs/propTypes/tableShape.lua',
-  'tests/specs/propTypes/optional.lua',
-  'tests/specs/propTypes/value.lua',
-  'tests/specs/propTypes/boolean.lua',
-  'tests/specs/propTypes/callable.lua',
-  'tests/specs/propTypes/function.lua',
-  'tests/specs/propTypes/number.lua',
-  'tests/specs/propTypes/string.lua',
-  'tests/specs/propTypes/table.lua',
-  'tests/specs/propTypes/oneOf.lua'
+  'tests/specs/reactor/reconcile.lua',
+  'tests/specs/reactor/lifecycle.lua',
+  'tests/specs/reactor/component.lua',
+  'tests/specs/reactor/invoke.lua',
+  'tests/specs/reactor/propTypes/tableShape.lua',
+  'tests/specs/reactor/propTypes/optional.lua',
+  'tests/specs/reactor/propTypes/value.lua',
+  'tests/specs/reactor/propTypes/boolean.lua',
+  'tests/specs/reactor/propTypes/callable.lua',
+  'tests/specs/reactor/propTypes/function.lua',
+  'tests/specs/reactor/propTypes/number.lua',
+  'tests/specs/reactor/propTypes/string.lua',
+  'tests/specs/reactor/propTypes/table.lua',
+  'tests/specs/reactor/propTypes/oneOf.lua'
 }

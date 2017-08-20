@@ -1,4 +1,4 @@
-local oneOf = require('src.propTypes.oneOf')
+local oneOf = require('reactor.propTypes.oneOf')
 
 local function trueValidator()
   return true 

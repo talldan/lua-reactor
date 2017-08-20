@@ -1,6 +1,6 @@
-local curry = require('utils.funcUtils').curry
-local assign = require('utils.tableUtils').assign
-local component = require('reactor.reactor').component
+local curry = require('reactor.utils.funcUtils').curry
+local assign = require('reactor.utils.tableUtils').assign
+local component = require('reactor').component
 
 local function createLeafNode(componentConfig)
   local renderFunc = curry(function(props, path)

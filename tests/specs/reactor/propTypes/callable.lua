@@ -1,4 +1,4 @@
-local callable = require('src.propTypes.callable')
+local callable = require('reactor.propTypes.callable')
 
 describe('callable', function() 
   describe('behaviour', function()

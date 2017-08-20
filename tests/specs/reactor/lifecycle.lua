@@ -1,4 +1,4 @@
-local lifecycleModule = require('src.lifecycle')
+local lifecycleModule = require('reactor.lifecycle')
 local mockReactor = {
   registry = {
     getLastProps = function() end,

@@ -1,5 +1,5 @@
-local curry = require('utils.funcUtils').curry
-local map = require('utils.tableUtils').map
+local curry = require('reactor.utils.funcUtils').curry
+local map = require('reactor.utils.tableUtils').map
 
 local function lifecycleModule(reactor)
   local function updatePath(component, props, path)

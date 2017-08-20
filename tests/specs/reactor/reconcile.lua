@@ -1,4 +1,4 @@
-local reconcileModule = require('src.reconcile')
+local reconcileModule = require('reactor.reconcile')
 local reconcile = reconcileModule()
 
 describe('#reconcile', function()

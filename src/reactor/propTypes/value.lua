@@ -1,4 +1,4 @@
-local getPrintableValue = require('helpers.getPrintableValue')
+local getPrintableValue = require('reactor.helpers.getPrintableValue')
 
 local function getFailureReason(description, actualValue)
   local printableDescription = getPrintableValue(description)

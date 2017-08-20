@@ -1,4 +1,4 @@
-local validateNumber = require('src.propTypes.number')
+local validateNumber = require('reactor.propTypes.number')
 
 describe('number', function()
   describe('behaviour', function()

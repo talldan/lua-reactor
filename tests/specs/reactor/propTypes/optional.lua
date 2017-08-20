@@ -1,4 +1,4 @@
-local optional = require('src.propTypes.optional')
+local optional = require('reactor.propTypes.optional')
 
 local function stringValidator()
   return function(toValidate)
